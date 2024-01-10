@@ -57,8 +57,8 @@
         var pointsLayer = null;
         var polygonsLayer = null;
 
-        // Fetch and display GeoJSON points and polygons
-        fetch('http://localhost:8080/points_output.geojson')
+        // Fetch and display GeoJSON points and polygons using CORS Anywhere
+        fetch('https://cors-anywhere.herokuapp.com/http://localhost:8080/points_output.geojson')
             .then(response => response.json())
             .then(data => {
                 pointsLayer = L.geoJSON(data, {
@@ -67,8 +67,8 @@
                     }
                 });
 
-                // Fetch polygons GeoJSON from the local server
-                return fetch('http://localhost:8080/output.geojson');
+                // Fetch polygons GeoJSON from the local server using CORS Anywhere
+                return fetch('https://cors-anywhere.herokuapp.com/http://localhost:8080/output.geojson');
             })
             .then(response => response.json())
             .then(data => {
